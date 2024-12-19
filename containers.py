@@ -12,7 +12,7 @@ def main():
         sys.exit(1)
 
     # Number of containers to run
-    num_containers = 10  # You can adjust this number as needed
+    num_containers = 5  # You can adjust this number as needed
 
     # List to keep track of container objects
     containers = []
