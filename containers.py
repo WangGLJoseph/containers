@@ -45,9 +45,12 @@ def main():
     print("Stopping and removing containers...")
     for i, container in enumerate(containers):
         try:
-            # container.stop()
-            # container.remove()
-            print(f"Stopped and removed container {i + 1}/{len(containers)}: {container.id}")
+            try:
+                container.stop()
+                container.remove()
+                print(f"Stopped and removed container {i + 1}/{len(containers)}: {container.id}")
+            except docker.errors.APIError as e:
+                print(f"Error stopping/removing container {container.id}: {e}")
         except docker.errors.APIError as e:
             print(f"Error stopping/removing container {container.id}: {e}")
 
